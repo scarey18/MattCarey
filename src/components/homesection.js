@@ -22,15 +22,16 @@ const NameContainer = styled.div`
 
 	h1 {
 		color: #fff;
-		@media screen and (max-width: 360px) {
-			font-size: 1.95rem;
+		font-size: 2.5rem;
+		@media screen and (max-width: 376px) {
+			font-size: 1.80rem;
 		}
 	}
 
 	p {
 		font-size: 1.3rem;
-		@media screen and (max-width: 360px) {
-			font-size: 1rem;
+		@media screen and (max-width: 376px) {
+			font-size: 0.9rem;
 		}
 	}
 `
@@ -56,7 +57,7 @@ const HomeSection = () => {
 		>
 			<NameContainer>
 				<h1>Matthew Carey</h1>
-				<p>Baritone - Opera</p>
+				<p>Baritone - Opera | Concert | Theater</p>
 			</NameContainer>
 		</StyledBackgroundImg>
 	);

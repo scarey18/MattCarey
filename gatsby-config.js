@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Matthew Carey | Baritone - Opera`,
+    title: `Matthew Carey | Baritone - Opera | Concert | Theater`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    author: `Sean Carey`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -24,6 +24,7 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-polished`,
     `gatsby-plugin-smoothscroll`,
+    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
