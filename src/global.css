@@ -1,0 +1,14 @@
+/* Global Styles */
+
+
+html, body, #___gatsby, #gatsby-focus-wrapper {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	overflow: initial;
+}
+
+#gatsby-focus-wrapper {
+	display: flex;
+	flex-direction: column;
+}
