@@ -9,6 +9,6 @@ collections:
     files:
       - label: "Biography"
         name: "biography"
-        file: "src/content/biography.yml"
+        file: "src/content/biography.md"
         fields:
           - {label: "Text", name: "body", widget: "markdown"}
