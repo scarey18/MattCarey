@@ -2,3 +2,12 @@ backend:
   name: git-gateway
 
 media_folder: "src/images"
+
+collections:
+  - name: "biography"
+    label: "Biography"
+    folder: "src/markdown"
+    create: false
+    slug: "biography"
+    fields:
+      - {label: "Text", name: "body", widget: "markdown"}
