@@ -4,8 +4,11 @@ backend:
 media_folder: "src/images"
 
 collections:
-  - name: "biography"
-    label: "Biography"
-    file: "src/content/biography.yml"
-    fields:
-      - {label: "Text", name: "body", widget: "markdown"}
+  - name: "content"
+    label: "Content"
+    files:
+      - label: "Biography"
+        name: "biography"
+        file: "src/content/biography.yml"
+        fields:
+          - {label: "Text", name: "body", widget: "markdown"}
