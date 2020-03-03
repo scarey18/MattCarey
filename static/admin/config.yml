@@ -6,8 +6,6 @@ media_folder: "src/images"
 collections:
   - name: "biography"
     label: "Biography"
-    folder: "src/markdown"
-    create: false
-    slug: "biography"
+    file: "src/content/biography.yml"
     fields:
       - {label: "Text", name: "body", widget: "markdown"}
