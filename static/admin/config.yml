@@ -14,9 +14,12 @@ collections:
           - {label: "Text", name: "body", widget: "markdown"}
       - label: "Videos"
         name: "videos"
-        file: "src/content/video-urls.md"
+        file: "src/content/video-urls.json"
+        format: "json"
         fields: 
-          - label: "Video Urls"
-            name: "videoUrls"
+          - label: "Videos"
+            name: "videos"
             widget: "list"
-            field: {label: "Url", name: "url", widget: "string"}
+            fields: 
+              - {label: "Video Title", name: "title", widget: "string"}
+              - {label: "Video Url", name: "url", widget: "string"}
