@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 
 import * as palette from '../cssvariables'
@@ -8,18 +8,18 @@ import NavLink from './navlink'
 const HeaderAnchor = styled.div`
   width: 100%;
   min-height: 3rem;
-  background-color: ${palette.mainBackgroundColor};
+  background-color: ${palette.black};
   position: relative;
 `
 
 const FixedHeader = styled.header`
   width: 100%;
   height: 3rem;
-  background-color: ${palette.mainBackgroundColor};
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
+  transition: all 250ms ease-in-out;
 `
 
 const Container = styled.div`
@@ -32,17 +32,41 @@ const Container = styled.div`
   align-items: center;
 `
 
-const Header = () => (
-  <React.Fragment>
-    <HeaderAnchor id="header-top"/>
-    <FixedHeader id="header-fixed">
-      <Container>
-        <NavLink anchor="#header-top">Home</NavLink>
-        <NavLink anchor="#about">About</NavLink>
-        <NavLink anchor="#videos">Videos</NavLink>
-      </Container>
-    </FixedHeader>
-  </React.Fragment>
-)
+const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [])
+
+  const handleScroll = () => {
+    if (window.scrollY === 0) {
+      setIsScrolled(false);
+    }
+    else {
+      setIsScrolled(true);
+    }
+  }
+
+  const fixedHeaderStyle = isScrolled ? {
+    backgroundColor: palette.mainBackgroundColor,
+  } : {
+    backgroundColor: palette.black,
+  }
+
+  return (
+    <React.Fragment>
+      <HeaderAnchor id="header-top"/>
+      <FixedHeader id="header-fixed" style={fixedHeaderStyle}>
+        <Container>
+          <NavLink anchor="#header-top">Home</NavLink>
+          <NavLink anchor="#about">About</NavLink>
+          <NavLink anchor="#videos">Videos</NavLink>
+        </Container>
+      </FixedHeader>
+    </React.Fragment>
+  )
+}
 
 export default Header;

@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 
 const LazyLoadedYoutube = ({ url, title }) => {
-	const regex = /(v=|\.be\/|embed\/)(\w+)&?/
+	const regex = /(v=|\.be\/|\/embed\/)(\w+)&?/
 	const id = url.match(regex)[2]
 	const embedUrl = `https://www.youtube.com/embed/${id}?rel=0`
 	const imgUrl = `https://img.youtube.com/vi/${id}/hqdefault.jpg`
@@ -12,13 +12,11 @@ const LazyLoadedYoutube = ({ url, title }) => {
 
 	return (
 		<iframe
-		  width="300px"
-		  height="200px"
 		  src={embedUrl}
-		  srcdoc={srcdoc}
-		  frameborder="0"
+		  srcDoc={srcdoc}
+		  frameBorder="0"
 		  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-		  allowfullscreen='true'
+		  allowFullScreen={true}
 		  title={title}
 		  loading="lazy"
 		></iframe>

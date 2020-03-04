@@ -31,7 +31,7 @@ const CollapsibleContainer = ({ children, className, expand, collapsedHeight, in
 	useEffect(() => {
 		window.addEventListener('resize', newMaxHeight);
 		return () => window.removeEventListener('resize', newMaxHeight);
-	})
+	}, [])
 
 	const newMaxHeight = () => {
 		contentRef.current.style.height = 'auto';

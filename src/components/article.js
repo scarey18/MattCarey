@@ -7,7 +7,7 @@ import * as palette from '../cssvariables'
 
 const StyledArticle = styled.article`
 	width: 100%;
-	background-color: ${palette.mainBackgroundColor};
+	background-color: ${props => props.backgroundColor};
 	position: relative;
 	min-height: 100%;
 	display: flex;
@@ -23,9 +23,13 @@ const StyledArticle = styled.article`
 `
 
 
-const Article = ({ className, id, children }) => {
+const Article = ({ className, id, children, backgroundColor }) => {
 	return (
-		<StyledArticle className={className} id={id}>
+		<StyledArticle 
+			className={className} 
+			id={id} 
+			backgroundColor={backgroundColor}
+		>
 			{children}
 		</StyledArticle>
 	)
@@ -36,6 +40,11 @@ Article.propTypes = {
 	className: PropTypes.string,
 	id: PropTypes.string,
 	children: PropTypes.node.isRequired,
+	backgroundColor: PropTypes.string,
+}
+
+Article.defaultProps = {
+	backgroundColor: palette.mainBackgroundColor,
 }
 
 

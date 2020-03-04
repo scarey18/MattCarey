@@ -10,7 +10,7 @@ const StyledBackgroundImg = styled(BackgroundImg)`
 	width: 100%;
 	height: 100%;
 	background-size: auto 100%;
-	background-color: ${palette.mainBackgroundColor};
+	background-color: ${palette.black};
 	position: relative;
 `
 

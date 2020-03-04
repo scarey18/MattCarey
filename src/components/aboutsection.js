@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
-import { darken } from "polished"
+import { darken, lighten } from "polished"
 
 import * as palette from '../cssvariables'
 import Article from './article'
@@ -13,6 +13,7 @@ import CollapsibleContainer from './collapsiblecontainer'
 const ImgContainer = styled.div`
 	width: 100%;
 	max-width: 480px;
+	margin-top: 20px;
 `
 
 const BioContainer = styled(CollapsibleContainer)`
@@ -25,11 +26,11 @@ const BioContainer = styled(CollapsibleContainer)`
 
 	button {
 		margin: 15px;
-		background-color: ${palette.mainColor};
-		color: ${palette.mainBackgroundColor};
+		background-color: ${palette.btnBackground};
+		color: ${palette.white};
 
 		&:hover {
-			background-color: ${darken(0.2, palette.mainColor)};
+			background-color: ${lighten(0.15, palette.btnBackground)};
 		}
 	}
 `
@@ -52,7 +53,10 @@ const AboutSection = () => {
 	`)
 
 	return (
-		<Article id="about">
+		<Article 
+			id="about" 
+			backgroundColor={palette.backgroundPalette[0]}
+		>
 			<ContentHeader>
 				Meet Matt
 			</ContentHeader>
