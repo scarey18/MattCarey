@@ -1,0 +1,31 @@
+import React from "react"
+import styled from "styled-components"
+import PropTypes from "prop-types"
+
+import * as palette from '../cssvariables'
+
+
+const Header = styled.h1`
+	color: ${palette.mainColor};
+	border-bottom: 1px solid ${palette.mainColor};
+	padding: 10px;
+	width: auto;
+`
+
+
+const ContentHeader = ({ className, children }) => {
+	return (
+		<Header className={className}>
+			{children}
+		</Header>
+	)
+}
+
+
+ContentHeader.propTypes = {
+	className: PropTypes.string,
+	children: PropTypes.string.isRequired,
+}
+
+
+export default ContentHeader;

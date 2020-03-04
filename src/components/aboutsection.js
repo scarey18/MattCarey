@@ -5,32 +5,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import { darken } from "polished"
 
 import * as palette from '../cssvariables'
-import ContentContainer from './contentcontainer'
+import Article from './article'
+import ContentHeader from './contentheader'
 import CollapsibleContainer from './collapsiblecontainer'
 
-
-const Article = styled.article`
-	width: 100%;
-	background-color: ${palette.mainBackgroundColor};
-	position: relative;
-	min-height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding-top: 54px;
-`
-
-const Container = styled(ContentContainer)`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-
-	h1 {
-		color: ${palette.mainColor};
-		border-bottom: 1px solid ${palette.mainColor};
-		padding: 10px;
-	}
-`
 
 const ImgContainer = styled.div`
 	width: 100%;
@@ -75,16 +53,16 @@ const AboutSection = () => {
 
 	return (
 		<Article id="about">
-			<Container>
-				<h1>Meet Matt</h1>
-				<ImgContainer>
-					<Img fluid={data.file.childImageSharp.fluid} />
-				</ImgContainer>
-				<BioContainer 
-					collapsedHeight="300px"
-					innerHtml={data.markdownRemark.html}
-				/>
-			</Container>
+			<ContentHeader>
+				Meet Matt
+			</ContentHeader>
+			<ImgContainer>
+				<Img fluid={data.file.childImageSharp.fluid} />
+			</ImgContainer>
+			<BioContainer 
+				collapsedHeight="300px"
+				innerHtml={data.markdownRemark.html}
+			/>
 		</Article>
 	)
 }

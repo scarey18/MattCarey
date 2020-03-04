@@ -3,7 +3,6 @@ import styled from "styled-components"
 
 import * as palette from '../cssvariables'
 import NavLink from './navlink'
-import ContentContainer from './contentcontainer'
 
 
 const HeaderAnchor = styled.div`
@@ -23,8 +22,11 @@ const FixedHeader = styled.header`
   z-index: 100;
 `
 
-const Container = styled(ContentContainer)`
+const Container = styled.div`
   height: 100%;
+  width: 80%;
+  max-width: 1080px;
+  margin: 0 auto;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -37,6 +39,7 @@ const Header = () => (
       <Container>
         <NavLink anchor="#header-top">Home</NavLink>
         <NavLink anchor="#about">About</NavLink>
+        <NavLink anchor="#videos">Videos</NavLink>
       </Container>
     </FixedHeader>
   </React.Fragment>

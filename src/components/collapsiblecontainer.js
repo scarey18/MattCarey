@@ -13,7 +13,7 @@ const Button = styled.button`
 	width: 7rem;
 	border-radius: 8px;
 	cursor: pointer;
-	transition: color 250ms ease-in-out;
+	transition: background-color 250ms ease-in-out;
 `
 
 

@@ -20,11 +20,18 @@ const StyledLink = styled.a`
 `
 
 
-const NavLink = ({ anchor, children }) => (
-	<StyledLink onClick={() => scrollTo(anchor)}>
-		{children}
-	</StyledLink>
-)
+const NavLink = ({ anchor, children }) => {
+  const handleClick = e => {
+    e.preventDefault();
+    scrollTo(anchor);
+  }
+
+  return (
+  	<StyledLink onClick={handleClick}>
+  		{children}
+  	</StyledLink>
+  )
+}
 
 
 NavLink.propTypes = {
