@@ -12,3 +12,16 @@ html, body, #___gatsby, #gatsby-focus-wrapper {
 	display: flex;
 	flex-direction: column;
 }
+
+button {
+	text-decoration: none;
+	border: none;
+}
+
+button:focus {
+	outline: none;
+}
+
+button:active {
+	border-style: none;
+}

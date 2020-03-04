@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import '../global.css'
+import * as palette from '../cssvariables'
 import Header from "./header"
 
 
@@ -12,8 +13,8 @@ const Main = styled.main`
 `
 
 const Footer = styled.footer`
-  background-color: #020202;
-  color: #fff;
+  background-color: ${palette.mainBackgroundColor};
+  color: ${palette.mainColor};
 `
 
 const Layout = ({ children }) => (

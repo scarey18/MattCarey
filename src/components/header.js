@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
+import * as palette from '../cssvariables'
 import NavLink from './navlink'
 import ContentContainer from './contentcontainer'
 
@@ -8,14 +9,14 @@ import ContentContainer from './contentcontainer'
 const HeaderAnchor = styled.div`
   width: 100%;
   min-height: 3rem;
-  background-color: #020202;
+  background-color: ${palette.mainBackgroundColor};
   position: relative;
 `
 
 const FixedHeader = styled.header`
   width: 100%;
   height: 3rem;
-  background-color: #020202;
+  background-color: ${palette.mainBackgroundColor};
   position: fixed;
   top: 0;
   left: 0;

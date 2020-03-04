@@ -4,16 +4,18 @@ import { darken } from "polished"
 import PropTypes from "prop-types"
 import scrollTo from 'gatsby-plugin-smoothscroll'
 
+import * as palette from '../cssvariables'
+
 
 const StyledLink = styled.a`
   text-decoration: none;
-  color: ${darken(0.3, '#fff')};
+  color: ${darken(0.3, palette.mainColor)};
   cursor: pointer;
   padding: 10px;
   transition: color 250ms ease-in-out;
 
   &:hover {
-    color: #fff;
+    color: ${palette.mainColor};
   }
 `
 

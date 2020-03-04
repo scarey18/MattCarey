@@ -2,13 +2,16 @@ import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
+import { darken } from "polished"
 
+import * as palette from '../cssvariables'
 import ContentContainer from './contentcontainer'
+import CollapsibleContainer from './collapsiblecontainer'
 
 
 const Article = styled.article`
 	width: 100%;
-	background-color: #020202;
+	background-color: ${palette.mainBackgroundColor};
 	position: relative;
 	min-height: 100%;
 	display: flex;
@@ -23,8 +26,8 @@ const Container = styled(ContentContainer)`
 	align-items: center;
 
 	h1 {
-		color: #fff;
-		border-bottom: 1px solid #fff;
+		color: ${palette.mainColor};
+		border-bottom: 1px solid ${palette.mainColor};
 		padding: 10px;
 	}
 `
@@ -34,12 +37,23 @@ const ImgContainer = styled.div`
 	max-width: 480px;
 `
 
-const BioContainer = styled.section`
+const BioContainer = styled(CollapsibleContainer)`
 	max-width: 800px;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	margin: 20px auto;
-	color: #fff;
+	color: ${palette.mainColor};
+
+	button {
+		margin: 15px;
+		background-color: ${palette.mainColor};
+		color: ${palette.mainBackgroundColor};
+
+		&:hover {
+			background-color: ${darken(0.2, palette.mainColor)};
+		}
+	}
 `
 
 
@@ -67,7 +81,8 @@ const AboutSection = () => {
 					<Img fluid={data.file.childImageSharp.fluid} />
 				</ImgContainer>
 				<BioContainer 
-					dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+					collapsedHeight="300px"
+					innerHtml={data.markdownRemark.html}
 				/>
 			</Container>
 		</Article>
