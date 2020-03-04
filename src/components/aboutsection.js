@@ -34,7 +34,7 @@ const ImgContainer = styled.div`
 	max-width: 480px;
 `
 
-const BioContainer = styled.div`
+const BioContainer = styled.section`
 	max-width: 800px;
 	display: flex;
 	flex-direction: column;
@@ -45,7 +45,7 @@ const BioContainer = styled.div`
 
 const AboutSection = () => {
 	const data = useStaticQuery(graphql`
-		query {
+		{
 		  file(relativePath: {eq: "press_photo_1.jpg"}) {
 		    childImageSharp {
 		      fluid {

@@ -39,7 +39,7 @@ const NameContainer = styled.div`
 
 const HomeSection = () => {
 	const data = useStaticQuery(graphql`
-		query {
+		{
 		  file(relativePath: {eq: "press_photo_2.jpg"}) {
 		    childImageSharp {
 		      fluid {

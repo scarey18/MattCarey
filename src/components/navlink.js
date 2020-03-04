@@ -7,13 +7,13 @@ import scrollTo from 'gatsby-plugin-smoothscroll'
 
 const StyledLink = styled.a`
   text-decoration: none;
-  color: #fff;
+  color: ${darken(0.3, '#fff')};
   cursor: pointer;
   padding: 10px;
   transition: color 250ms ease-in-out;
 
   &:hover {
-    color: ${darken(0.3, '#fff')};
+    color: #fff;
   }
 `
 
