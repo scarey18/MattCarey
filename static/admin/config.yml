@@ -12,3 +12,11 @@ collections:
         file: "src/content/biography.md"
         fields:
           - {label: "Text", name: "body", widget: "markdown"}
+      - label: "Videos"
+        name: "videos"
+        file: "src/content/video-urls.md"
+        fields: 
+          - label: "Video Urls"
+            name: "videoUrls"
+            widget: "list"
+            field: {label: "Url", name: "url", widget: "string"}
