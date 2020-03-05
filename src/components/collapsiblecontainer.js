@@ -9,8 +9,8 @@ const Content = styled.div`
 `
 
 const Button = styled.button`
-	font-size: 1.2rem;
-	width: 7rem;
+	width: 6rem;
+	padding: 5px 0;
 	border-radius: 8px;
 	cursor: pointer;
 	transition: background-color 250ms ease-in-out;

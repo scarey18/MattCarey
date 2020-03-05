@@ -22,7 +22,7 @@ const FixedHeader = styled.header`
   transition: all 250ms ease-in-out;
 `
 
-const Container = styled.div`
+const NavBar = styled.nav`
   height: 100%;
   width: 80%;
   max-width: 1080px;
@@ -51,6 +51,7 @@ const Header = () => {
 
   const fixedHeaderStyle = isScrolled ? {
     backgroundColor: palette.mainBackgroundColor,
+    boxShadow: `0 3px 7px 0 ${palette.boxShadow}`,
   } : {
     backgroundColor: palette.black,
   }
@@ -59,11 +60,11 @@ const Header = () => {
     <React.Fragment>
       <HeaderAnchor id="header-top"/>
       <FixedHeader id="header-fixed" style={fixedHeaderStyle}>
-        <Container>
+        <NavBar>
           <NavLink anchor="#header-top">Home</NavLink>
           <NavLink anchor="#about">About</NavLink>
           <NavLink anchor="#videos">Videos</NavLink>
-        </Container>
+        </NavBar>
       </FixedHeader>
     </React.Fragment>
   )

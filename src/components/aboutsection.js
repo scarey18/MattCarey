@@ -55,7 +55,7 @@ const AboutSection = () => {
 	return (
 		<Article 
 			id="about" 
-			backgroundColor={palette.backgroundPalette[0]}
+			backgroundColor={palette.mainBackgroundColor}
 		>
 			<ContentHeader>
 				Meet Matt
