@@ -1,1 +1,20 @@
-{}
+{
+  "videos": [
+    {
+      "title": "Cabaret Songs - Richard Pearson Thomas",
+      "url": "https://www.youtube.com/watch?v=q6wRZSN0RYk"
+    },
+    {
+      "title": "I Was There - Lee Hoiby",
+      "url": "https://www.youtube.com/watch?v=trLdTwN28sc"
+    },
+    {
+      "title": "Te Deum - Tosca - Giacomo Puccini",
+      "url": "https://www.youtube.com/watch?v=OkbPlSN27AE"
+    },
+    {
+      "title": "Die Winterreise - Franz Schubert",
+      "url": "https://www.youtube.com/watch?v=Rn9Pj2eOGuM"
+    }
+  ]
+}
