@@ -27,7 +27,7 @@ const NavLink = ({ anchor, children }) => {
   }
 
   return (
-  	<StyledLink onClick={handleClick}>
+  	<StyledLink onClick={handleClick} href={anchor}>
   		{children}
   	</StyledLink>
   )

@@ -64,6 +64,7 @@ const Header = () => {
           <NavLink anchor="#header-top">Home</NavLink>
           <NavLink anchor="#about">About</NavLink>
           <NavLink anchor="#videos">Videos</NavLink>
+          <NavLink anchor="#photos">Photos</NavLink>
         </NavBar>
       </FixedHeader>
     </React.Fragment>
