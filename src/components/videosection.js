@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { lighten } from "polished"
 
 import * as palette from '../cssvariables'
 import Article from './article'
@@ -27,7 +26,7 @@ const VideoSection = () => {
 			<ContentHeader>Watch Matt</ContentHeader>
 			<VideoList>
 				{data.videos.map(({ title, url }) => (
-					<VideoContainer title={title} url={url} />
+					<VideoContainer title={title} url={url} key={url} />
 				))}
 			</VideoList>
 		</Article>

@@ -1,14 +1,13 @@
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import { lighten } from "polished"
+import { isMobile } from "react-device-detect";
 
 import * as palette from '../cssvariables'
 
 
 const Container = styled.div`
-	width: 315px;
-	min-height: 250px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -21,6 +20,14 @@ const Container = styled.div`
 	color: ${palette.mainColor};
 	border-radius: 8px;
 	box-shadow: 0 3px 7px 0 ${palette.boxShadow};
+
+	iframe {
+		width: 450px;
+		max-width: 80vw;
+		height: 231px;
+		max-height: calc((80vw / 16) * 9);
+		z-index: 90;
+	}
 
 	&:hover {
 		background-color: ${lighten(0.04, palette.mainBackgroundColor)};
@@ -35,10 +42,10 @@ const VideoContainer = ({ title, url }) => {
 	const id = url.match(regex)[2];
 	const embedUrl = `https://www.youtube.com/embed/${id}?rel=0`;
 	const imgUrl = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
-	const srcdoc = `<style>*{padding:0;margin:0;overflow:hidden;cursor:pointer}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><img src='${imgUrl}' alt='${title}' loading='lazy'><span>▶</span>`
+	const srcdoc = `<style>*{padding:0;margin:0;overflow:hidden;cursor:pointer}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black;background-color:transparent}</style><a href='${embedUrl}'><img src='${imgUrl}' alt='${title}' loading='lazy'><span>▶</span></a>`
 
 	const handleHoverOrClick = () => {
-		if (!loadVideo) {
+		if (!loadVideo && !isMobile) {
 			setLoadVideo(true);
 		}
 	}
@@ -65,7 +72,7 @@ const VideoContainer = ({ title, url }) => {
 
 	return (
 		<Container 
-			onMouseEnter={handleHoverOrClick} 
+			onMouseEnter={handleHoverOrClick}
 			onClick={handleHoverOrClick}
 		>
 			{videoFrame}

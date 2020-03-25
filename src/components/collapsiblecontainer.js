@@ -21,10 +21,12 @@ const CollapsibleContainer = ({ children, className, expand, collapsedHeight, in
 	const [isExpanded, setIsExpanded] = useState(expand);
 	const [maxHeight, setMaxHeight] = useState(null);
 	const contentRef = useRef();
+	const savedWindowWidth = useRef();
 
 	useEffect(() => {
 		if (maxHeight === null) {
 			newMaxHeight();
+			savedWindowWidth.current = window.innerWidth;
 		}
 	}, [maxHeight])
 
@@ -34,6 +36,7 @@ const CollapsibleContainer = ({ children, className, expand, collapsedHeight, in
 	}, [])
 
 	const newMaxHeight = () => {
+		if (savedWindowWidth.current && window.innerWidth === savedWindowWidth.current) return;
 		contentRef.current.style.height = 'auto';
 		setMaxHeight(contentRef.current.offsetHeight);
 		contentRef.current.style.height = isExpanded ? maxHeight : collapsedHeight;

@@ -2,7 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
-import { darken, lighten } from "polished"
+import { lighten } from "polished"
+import { isMobileOnly } from "react-device-detect";
 
 import * as palette from '../cssvariables'
 import Article from './article'
@@ -16,7 +17,8 @@ const ImgContainer = styled.div`
 	margin-top: 20px;
 `
 
-const BioContainer = styled(CollapsibleContainer)`
+
+const BioContainerStyle = `
 	max-width: 800px;
 	display: flex;
 	flex-direction: column;
@@ -33,6 +35,14 @@ const BioContainer = styled(CollapsibleContainer)`
 			background-color: ${lighten(0.15, palette.btnBackground)};
 		}
 	}
+`
+
+const MobileContainer = styled(CollapsibleContainer)`
+	${BioContainerStyle}
+`
+
+const NonMobileContainer = styled.div`
+	${BioContainerStyle}
 `
 
 
@@ -52,6 +62,17 @@ const AboutSection = () => {
 		}
 	`)
 
+	const BioContainer = isMobileOnly ? (
+		<MobileContainer 
+			collapsedHeight="300px"
+			innerHtml={data.markdownRemark.html}
+		/>
+	) : (
+		<NonMobileContainer 
+			dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}
+		/>
+	)
+
 	return (
 		<Article 
 			id="about" 
@@ -63,10 +84,7 @@ const AboutSection = () => {
 			<ImgContainer>
 				<Img fluid={data.file.childImageSharp.fluid} />
 			</ImgContainer>
-			<BioContainer 
-				collapsedHeight="300px"
-				innerHtml={data.markdownRemark.html}
-			/>
+			{BioContainer}
 		</Article>
 	)
 }

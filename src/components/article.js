@@ -9,11 +9,10 @@ const StyledArticle = styled.article`
 	width: 100%;
 	background-color: ${props => props.backgroundColor};
 	position: relative;
-	min-height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 54px 0 27px 0;
+	padding: 54px 0;
 
 	& > * {
 		width: 80%;

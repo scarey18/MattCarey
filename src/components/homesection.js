@@ -12,6 +12,10 @@ const StyledBackgroundImg = styled(BackgroundImg)`
 	background-size: auto 100%;
 	background-color: ${palette.black};
 	position: relative;
+
+	&::before {
+		background-size: contain !important;
+	}
 `
 
 const NameContainer = styled.div`
