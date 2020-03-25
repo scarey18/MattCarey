@@ -11,6 +11,11 @@ import ContentHeader from './contentheader'
 import CollapsibleContainer from './collapsiblecontainer'
 
 
+const StyledArticle = styled(Article)`
+	background-color: ${palette.mainBackgroundColor};
+`
+
+
 const ImgContainer = styled.div`
 	width: 100%;
 	max-width: 480px;
@@ -74,10 +79,7 @@ const AboutSection = () => {
 	)
 
 	return (
-		<Article 
-			id="about" 
-			backgroundColor={palette.mainBackgroundColor}
-		>
+		<StyledArticle id="about">
 			<ContentHeader>
 				Meet Matt
 			</ContentHeader>
@@ -85,7 +87,7 @@ const AboutSection = () => {
 				<Img fluid={data.file.childImageSharp.fluid} />
 			</ImgContainer>
 			{BioContainer}
-		</Article>
+		</StyledArticle>
 	)
 }
 

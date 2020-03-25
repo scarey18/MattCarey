@@ -12,6 +12,7 @@ collections:
         file: "src/content/biography.md"
         fields:
           - {label: "Text", name: "body", widget: "markdown"}
+
       - label: "Videos"
         name: "videos"
         file: "src/content/video-urls.json"
@@ -23,3 +24,23 @@ collections:
             fields: 
               - {label: "Video Title", name: "title", widget: "string"}
               - {label: "Video Url", name: "url", widget: "string"}
+
+      - label: "Photos"
+        name: "photos"
+        file: "src/content/photos.json"
+        format: "json"
+        fields:
+          - label: "Photos"
+            name: "photos"
+            widget: "list"
+            fields:
+              - label: "Image"
+                name: "image"
+                widget: "image"
+              - label: "Description"
+                name: "description"
+                widget: "string"
+              - label: "Press Photo"
+                name: "press"
+                widget: "boolean"
+                default: false

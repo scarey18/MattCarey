@@ -5,9 +5,10 @@ import { lighten } from "polished"
 import { isMobile } from "react-device-detect";
 
 import * as palette from '../cssvariables'
+import Card from './card'
 
 
-const Container = styled.div`
+const Container = styled(Card)`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -16,10 +17,8 @@ const Container = styled.div`
 	padding: 5px 10px 0 10px;
 	background-color: ${palette.mainBackgroundColor};
 	cursor: pointer;
-	transition: background-color 250ms ease-in-out;
+	transition: all 250ms ease-in-out;
 	color: ${palette.mainColor};
-	border-radius: 8px;
-	box-shadow: 0 3px 7px 0 ${palette.boxShadow};
 
 	iframe {
 		width: 450px;
@@ -31,6 +30,7 @@ const Container = styled.div`
 
 	&:hover {
 		background-color: ${lighten(0.04, palette.mainBackgroundColor)};
+		margin: 20px 10px 10px 10px;
 	}
 `
 

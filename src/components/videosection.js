@@ -8,6 +8,10 @@ import VideoContainer from './videocontainer'
 import data from "../content/video-urls.json"
 
 
+const StyledArticle = styled(Article)`
+	background-color: ${palette.secondaryBackgroundColor};
+`
+
 const VideoList = styled.section`
 	width: 100%;
 	display: flex;
@@ -19,17 +23,14 @@ const VideoList = styled.section`
 
 const VideoSection = () => {
 	return (
-		<Article 
-			id="videos"
-			backgroundColor={palette.secondaryBackgroundColor}
-		>	
+		<StyledArticle id="videos">	
 			<ContentHeader>Watch Matt</ContentHeader>
 			<VideoList>
 				{data.videos.map(({ title, url }) => (
 					<VideoContainer title={title} url={url} key={url} />
 				))}
 			</VideoList>
-		</Article>
+		</StyledArticle>
 	)
 }
 
