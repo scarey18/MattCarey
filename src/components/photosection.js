@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useRef } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import StackGrid from 'react-stack-grid'
@@ -36,7 +36,23 @@ const PhotoSection = () => {
 		}
 	`)
 
+	const grid = useRef();
+	const gridTimeout = useRef();
 	const isMobile = useContext(MobileContext);
+
+	const updateGrid = () => {
+		gridTimeout.current = window.setTimeout(() => {
+			grid.current.updateLayout();
+		}, 500);
+	}
+
+	useEffect(() => {
+		window.addEventListener('resize', updateGrid);
+		return () => {
+			window.removeEventListener('resize', updateGrid);
+			clearTimeout(gridTimeout.current);
+		}
+	}, [])
 
 	const regex = /.+\/(\w+\.\w{3,4})/;
 	const photos = json.photos.map(photo => {
@@ -64,6 +80,7 @@ const PhotoSection = () => {
 			<ContentHeader>Photos</ContentHeader>
 			<Gallery 
 				columnWidth={isMobile ? '49%' : '33%'}
+				ref={grid}
 			>
 				{photos}
 			</Gallery>

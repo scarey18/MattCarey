@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react"
+import React, { createContext, useEffect, useState, useRef } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { darken } from "polished"
@@ -27,18 +27,17 @@ const Footer = styled.footer`
 
 export const MobileContext = createContext();
 
-let mql;
-
 const Layout = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const mql = useRef();
 
-  const updateMobile = () => setIsMobile(mql.matches);
+  const updateMobile = () => setIsMobile(mql.current.matches);
 
   useEffect(() => {
-    mql = window.matchMedia('(max-width: 599px)');
+    mql.current = window.matchMedia('(max-width: 599px)');
     updateMobile();
-    mql.addListener(updateMobile);
-    return () => mql.removeListener(updateMobile);
+    mql.current.addListener(updateMobile);
+    return () => mql.current.removeListener(updateMobile);
   }, [])
 
   return (
@@ -56,4 +55,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default Layout;
