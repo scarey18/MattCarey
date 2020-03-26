@@ -68,6 +68,7 @@ const Header = () => {
     <NavLink anchor="#about">About</NavLink>,
     <NavLink anchor="#videos">Videos</NavLink>,
     <NavLink anchor="#photos">Photos</NavLink>,
+    <NavLink anchor="#repertoire">Repertoire</NavLink>,
     <NavLink anchor="#contact">Contact</NavLink>,
   ]
 

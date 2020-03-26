@@ -16,7 +16,7 @@ const Button = styled.button`
 `
 
 
-const CollapsibleContainer = ({ children, className, expand, collapsedHeight, innerHtml }) => {
+const CollapsibleContainer = ({ children, className, expand, collapsedHeight, maxHeight, innerHtml }) => {
 	const [isExpanded, setIsExpanded] = useState(expand);
 
 	const onBtnClick = () => {
@@ -26,7 +26,7 @@ const CollapsibleContainer = ({ children, className, expand, collapsedHeight, in
 	const linearGradient = 'linear-gradient(rgba(0, 0, 0, 0.8), 80%, transparent)';
 
 	const contentStyle = isExpanded ? {
-		maxHeight: '300vh', 
+		maxHeight: maxHeight, 
 		WebkitMaskImage: 'none',
 	} : {
 		maxHeight: collapsedHeight,
@@ -60,6 +60,7 @@ CollapsibleContainer.propTypes = {
 	expand: PropTypes.bool,
 	className: PropTypes.string,
 	collapsedHeight: PropTypes.string.isRequired,
+	maxHeight: PropTypes.string.isRequired,
 	innerHtml: PropTypes.string,
 }
 

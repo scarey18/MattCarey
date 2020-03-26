@@ -9,7 +9,7 @@ import Card from './card'
 
 
 const StyledArticle = styled(Article)`
-	background-color: ${palette.secondaryBackgroundColor};
+	background-color: ${palette.mainBackgroundColor};
 
 	h3 {
 		color: ${palette.mainColor};

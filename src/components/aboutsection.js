@@ -74,7 +74,8 @@ const AboutSection = () => {
 
 	const BioContainer = isMobile ? (
 		<MobileContainer 
-			collapsedHeight="300px"
+			collapsedHeight="600px"
+			maxHeight="500vh"
 			innerHtml={data.bio.childMarkdownRemark.html}
 		/>
 	) : (
