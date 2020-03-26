@@ -67,6 +67,7 @@ const Header = () => {
     <NavLink anchor="#about">About</NavLink>,
     <NavLink anchor="#videos">Videos</NavLink>,
     <NavLink anchor="#photos">Photos</NavLink>,
+    <NavLink anchor="#contact">Contact</NavLink>,
   ]
 
   const navigation = isMobileOnly ? (

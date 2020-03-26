@@ -6,6 +6,7 @@ import HomeSection from "../components/homesection"
 import AboutSection from "../components/aboutsection"
 import VideoSection from '../components/videosection'
 import PhotoSection from '../components/photosection'
+import ContactSection from '../components/contactsection'
 
 const IndexPage = () => (
   <Layout>
@@ -14,6 +15,7 @@ const IndexPage = () => (
     <AboutSection/>
     <VideoSection/>
     <PhotoSection/>
+    <ContactSection/>
   </Layout>
 )
 

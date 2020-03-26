@@ -35,6 +35,7 @@ const BioContainerStyle = `
 		margin: 15px;
 		background-color: ${palette.btnBackground};
 		color: ${palette.white};
+		box-shadow: 0 1px 3px 0 ${palette.boxShadow};
 
 		&:hover {
 			background-color: ${lighten(0.15, palette.btnBackground)};

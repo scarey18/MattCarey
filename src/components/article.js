@@ -12,7 +12,8 @@ const StyledArticle = styled.article`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 54px 0;
+	padding: 4rem 0 2rem 0;
+	min-height: 80vh;
 
 	& > * {
 		width: 80%;
