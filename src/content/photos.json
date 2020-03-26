@@ -1,1 +1,19 @@
-{}
+{
+  "photos": [
+    {
+      "press": true,
+      "image": "/src/images/press_photo_1.jpg",
+      "description": "Press photo"
+    },
+    {
+      "press": true,
+      "image": "/src/images/press_photo_2.jpg",
+      "description": "Press photo"
+    },
+    {
+      "press": true,
+      "image": "/src/images/press_photo_3.jpg",
+      "description": "Press photo"
+    }
+  ]
+}
