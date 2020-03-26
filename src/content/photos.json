@@ -14,6 +14,11 @@
       "press": true,
       "image": "/src/images/press_photo_3.jpg",
       "description": "Press photo"
+    },
+    {
+      "press": false,
+      "image": "/src/images/teatro_de_la_ciudad.jpg",
+      "description": "Teatro de la Ciudad"
     }
   ]
 }
