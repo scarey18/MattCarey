@@ -8,7 +8,7 @@ import * as palette from '../cssvariables'
 
 const StyledBackgroundImg = styled(BackgroundImg)`
 	width: 100%;
-	height: 100%;
+	height: calc(100vh - 3rem);
 	background-size: auto 100%;
 	background-color: ${palette.black};
 	position: relative;

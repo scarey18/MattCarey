@@ -9,7 +9,7 @@ import NavLink from './navlink'
 
 const HeaderAnchor = styled.div`
   width: 100%;
-  min-height: 3rem;
+  height: 3rem;
   background-color: ${palette.black};
   position: relative;
 `
