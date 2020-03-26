@@ -9,6 +9,10 @@ import ContactForm from './contactform'
 
 const StyledArticle = styled(Article)`
 	background-color: ${palette.secondaryBackgroundColor};
+
+	h1 {
+		margin-bottom: 7%;
+	}
 `
 
 
