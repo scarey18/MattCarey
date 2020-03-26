@@ -22,12 +22,13 @@ export const MobileContext = createContext();
 
 
 const Layout = ({ children }) => {
-  const [isMobile, setIsMobile] = useState();
-  const mql = window.matchMedia('(max-width: 599px)');
+  const [isMobile, setIsMobile] = useState(false);
+  let mql;
 
   const checkMql = () => setIsMobile(mql.matches);
 
   useEffect(() => {
+    mql = window.matchMedia('(max-width: 599px)');
     checkMql();
     mql.addListener(checkMql);
     return () => mql.removeListener(checkMql);
