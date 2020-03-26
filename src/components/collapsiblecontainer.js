@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 
 
 const Content = styled.div`
-	transition: height 350ms ease-in-out;
+	transition: all 400ms ease-in-out;
 	overflow: hidden;
 `
 
@@ -13,34 +13,11 @@ const Button = styled.button`
 	padding: 5px 0;
 	border-radius: 8px;
 	cursor: pointer;
-	transition: background-color 250ms ease-in-out;
 `
 
 
 const CollapsibleContainer = ({ children, className, expand, collapsedHeight, innerHtml }) => {
 	const [isExpanded, setIsExpanded] = useState(expand);
-	const [maxHeight, setMaxHeight] = useState(null);
-	const contentRef = useRef();
-	const savedWindowWidth = useRef();
-
-	useEffect(() => {
-		if (maxHeight === null) {
-			newMaxHeight();
-			savedWindowWidth.current = window.innerWidth;
-		}
-	}, [maxHeight])
-
-	useEffect(() => {
-		window.addEventListener('resize', newMaxHeight);
-		return () => window.removeEventListener('resize', newMaxHeight);
-	}, [])
-
-	const newMaxHeight = () => {
-		if (savedWindowWidth.current && window.innerWidth === savedWindowWidth.current) return;
-		contentRef.current.style.height = 'auto';
-		setMaxHeight(contentRef.current.offsetHeight);
-		contentRef.current.style.height = isExpanded ? maxHeight : collapsedHeight;
-	}
 
 	const onBtnClick = () => {
 		setIsExpanded(!isExpanded);
@@ -49,24 +26,20 @@ const CollapsibleContainer = ({ children, className, expand, collapsedHeight, in
 	const linearGradient = 'linear-gradient(rgba(0, 0, 0, 0.8), 80%, transparent)';
 
 	const contentStyle = isExpanded ? {
-		height: maxHeight, 
+		maxHeight: '300vh', 
 		WebkitMaskImage: 'none',
 	} : {
-		height: collapsedHeight,
+		maxHeight: collapsedHeight,
 		WebkitMaskImage: linearGradient,
 	}
 
 	const content = children ? (
-		<Content
-			style={contentStyle}
-			ref={contentRef}
-		>
+		<Content style={contentStyle}>
 			{children}
 		</Content>
 	) : (
 		<Content
 			style={contentStyle}
-			ref={contentRef}
 			dangerouslySetInnerHTML={{__html: innerHtml}}
 		/>
 	)

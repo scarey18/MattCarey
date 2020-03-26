@@ -81,8 +81,8 @@ const MobileNav = ({ navLinks }) => {
         </span>
       </HamburgerBtn>
   		<Menu style={menuStyle}>
-        {navLinks.map(navLink => (
-          <NavItem onClick={() => setMenuDropped(false)}>
+        {navLinks.map((navLink, i) => (
+          <NavItem onClick={() => setMenuDropped(false)} key={i}>
             {navLink}
           </NavItem>
         ))}
@@ -93,7 +93,7 @@ const MobileNav = ({ navLinks }) => {
 
 
 MobileNav.propTypes = {
-  navlinks: PropTypes.array.isRequired,
+  navLinks: PropTypes.array.isRequired,
 }
 
 

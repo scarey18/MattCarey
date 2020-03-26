@@ -20,18 +20,18 @@ const Footer = styled.footer`
 
 export const MobileContext = createContext();
 
+let mql;
 
 const Layout = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
-  let mql;
 
-  const checkMql = () => setIsMobile(mql.matches);
+  const updateMobile = () => setIsMobile(mql.matches);
 
   useEffect(() => {
     mql = window.matchMedia('(max-width: 599px)');
-    checkMql();
-    mql.addListener(checkMql);
-    return () => mql.removeListener(checkMql);
+    updateMobile();
+    mql.addListener(updateMobile);
+    return () => mql.removeListener(updateMobile);
   }, [])
 
   return (
