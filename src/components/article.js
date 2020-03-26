@@ -13,7 +13,7 @@ const StyledArticle = styled.article`
 	flex-direction: column;
 	align-items: center;
 	padding: 4rem 0 2rem 0;
-	min-height: 60vh;
+	min-height: 60%;
 
 	& > * {
 		width: 80%;

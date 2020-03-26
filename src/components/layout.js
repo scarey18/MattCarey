@@ -9,7 +9,7 @@ import Header from "./header"
 
 const Main = styled.main`
   width: 100%;
-  height: calc(100vh - 3rem);
+  height: calc(100% - 3rem);
 `
 
 const Footer = styled.footer`

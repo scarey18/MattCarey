@@ -1,10 +1,9 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { lighten } from "polished"
 
 import * as palette from '../cssvariables'
-import { MobileContext } from './layout'
 import Article from './article'
 import ContentHeader from './contentheader'
 import CollapsibleContainer from './collapsiblecontainer'
@@ -61,7 +60,7 @@ const RepertoireSection = () => {
 			<ContentHeader>Repertoire</ContentHeader>
 			<RepContainer 
 				collapsedHeight="600px"
-				maxHeight="1000vh"
+				maxHeight="5000px"
 				innerHtml={data.file.childMarkdownRemark.html}
 			/>
 		</StyledArticle>
