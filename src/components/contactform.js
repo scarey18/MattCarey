@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { lighten } from "polished"
+import PropTypes from "prop-types"
 
 import * as palette from '../cssvariables'
 
@@ -81,7 +82,7 @@ function encode(data) {
 }
 
 
-const ContactForm = () => {
+const ContactForm = ({ onSubmission }) => {
 	const [state, setState] = useState({
     name: '', email: '', message: '',
   });
@@ -94,17 +95,18 @@ const ContactForm = () => {
   const formIsValidated = () => {
     const newWarnings = {};
     const { name, email, message } = state;
+    const notEmptyReg = /\w+/;
+    const emailReg = /\w+@\w+\.\w+/;
 
-    if (!/\w+@\w+\.\w+/.test(email)) {
-      newWarnings.email = 'Please enter a valid email address.'
-    }
-    if (!/\w+/.test(name)) {
+    if (!notEmptyReg.test(name)) {
       newWarnings.name = 'Please fill out this field.'
     }
-    if (!/\w+/.test(email)) {
+    if (!notEmptyReg.test(email)) {
       newWarnings.email = 'Please fill out this field.'
+    } else if (!emailReg.test(email)) {
+      newWarnings.email = 'Please enter a valid email address.'
     }
-    if (!/\w+/.test(message)) {
+    if (!notEmptyReg.test(message)) {
       newWarnings.message = 'Please fill out this field.'
     }
 
@@ -127,55 +129,64 @@ const ContactForm = () => {
           ...state,
         }),
       })
+        .then(onSubmission)
         .catch((error) => alert(error))
     }
   }
 
   return (
-  	<Form
-      name="contact"
-      method="post"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      onSubmit={handleSubmit}
-      noValidate
-    >
-    	<input type="hidden" name="form-name" value="contact" />
-      <p hidden>
-        <label>
-          Don’t fill this out: 
-          <input name="bot-field" onChange={handleChange} />
-        </label>
-      </p>
-      <InputField>
-        <label>
-          Your name:
-          {warnings.name && <span>{warnings.name}</span>}
-          <br />
-          <input type="text" name="name" onChange={handleChange} />
-        </label>
-      </InputField>
-      <InputField>
-        <label>
-          Your email:
-          {warnings.email && <span>{warnings.email}</span>}
-          <br />
-          <input type="email" name="email" onChange={handleChange} />
-        </label>
-      </InputField>
-      <TextAreaField>
-        <label>
-          Message:
-          {warnings.message && <span>{warnings.message}</span>}
-          <br />
-          <textarea name="message" onChange={handleChange} />
-        </label>
-      </TextAreaField>
-      <ButtonField>
-        <button type="submit">Send</button>
-      </ButtonField>
-    </Form>
+    <React.Fragment>
+      <h3>Or, send Matt a quick note:</h3>
+    	<Form
+        name="contact"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+        noValidate
+      >
+      	<input type="hidden" name="form-name" value="contact" />
+        <p hidden>
+          <label>
+            Don’t fill this out: 
+            <input name="bot-field" onChange={handleChange} />
+          </label>
+        </p>
+        <InputField>
+          <label>
+            Your name:
+            {warnings.name && <span>{warnings.name}</span>}
+            <br />
+            <input type="text" name="name" onChange={handleChange} />
+          </label>
+        </InputField>
+        <InputField>
+          <label>
+            Your email:
+            {warnings.email && <span>{warnings.email}</span>}
+            <br />
+            <input type="email" name="email" onChange={handleChange} />
+          </label>
+        </InputField>
+        <TextAreaField>
+          <label>
+            Message:
+            {warnings.message && <span>{warnings.message}</span>}
+            <br />
+            <textarea name="message" onChange={handleChange} />
+          </label>
+        </TextAreaField>
+        <ButtonField>
+          <button type="submit">Send</button>
+        </ButtonField>
+      </Form>
+    </React.Fragment>
   )
+}
+
+
+ContactForm.propTypes = {
+  onSubmission: PropTypes.func.isRequired,
 }
 
 
