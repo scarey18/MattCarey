@@ -13,7 +13,6 @@ const StyledArticle = styled(Article)`
 `
 
 const VideoList = styled.section`
-	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: flex-start;

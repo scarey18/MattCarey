@@ -19,7 +19,7 @@ const StyledArticle = styled(Article)`
 const ImgContainer = styled.div`
 	width: 100%;
 	max-width: 480px;
-	margin-top: 20px;
+	margin-top: 30px;
 `
 
 
@@ -54,15 +54,17 @@ const NonMobileContainer = styled.div`
 const AboutSection = () => {
 	const data = useStaticQuery(graphql`
 		{
-		  file(relativePath: {eq: "press_photo_1.jpg"}) {
+		  image: file(relativePath: {eq: "press_photo_1.jpg"}) {
 		    childImageSharp {
-		      fluid {
+		      fluid(maxWidth: 480) {
 		      	...GatsbyImageSharpFluid
 		      }
 		    }
 		  }
-		  markdownRemark(fileAbsolutePath: {regex: "/.+\/biography[.]md/"}) {
-		  	html
+		  bio: file(relativePath: {eq: "biography.md"}) {
+		    childMarkdownRemark {
+		      html
+		    }
 		  }
 		}
 	`)
@@ -70,11 +72,11 @@ const AboutSection = () => {
 	const BioContainer = isMobileOnly ? (
 		<MobileContainer 
 			collapsedHeight="300px"
-			innerHtml={data.markdownRemark.html}
+			innerHtml={data.bio.childMarkdownRemark.html}
 		/>
 	) : (
 		<NonMobileContainer 
-			dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}
+			dangerouslySetInnerHTML={{__html: data.bio.childMarkdownRemark.html}}
 		/>
 	)
 
@@ -84,7 +86,10 @@ const AboutSection = () => {
 				Meet Matt
 			</ContentHeader>
 			<ImgContainer>
-				<Img fluid={data.file.childImageSharp.fluid} />
+				<Img 
+					fluid={data.image.childImageSharp.fluid} 
+					alt="Matt Carey headshot" 
+				/>
 			</ImgContainer>
 			{BioContainer}
 		</StyledArticle>

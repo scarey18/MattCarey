@@ -5,4 +5,5 @@ export const mainBackgroundColor = '#100e17';
 export const secondaryBackgroundColor = '#29303C';
 export const mainColor = white;
 export const btnBackground = '#3f5462';
-export const boxShadow = '#020202cc';
+export const boxShadow = 'rgba(2, 2, 2, 0.8)';
+export const modalShadow = 'rgba(2, 2, 2, 0.5)';
