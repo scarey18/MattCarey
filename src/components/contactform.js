@@ -130,7 +130,7 @@ const ContactForm = ({ onSubmission }) => {
         }),
       })
         .then(onSubmission)
-        .catch((error) => alert(error))
+        .catch(error => alert(error))
     }
   }
 
