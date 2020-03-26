@@ -1,10 +1,10 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import StackGrid from 'react-stack-grid'
-import { isMobileOnly } from "react-device-detect";
 
 import * as palette from '../cssvariables'
+import { MobileContext } from './layout'
 import Article from './article'
 import ContentHeader from './contentheader'
 import PhotoContainer from './photocontainer'
@@ -36,6 +36,8 @@ const PhotoSection = () => {
 		}
 	`)
 
+	const isMobile = useContext(MobileContext);
+
 	const regex = /.+\/(\w+\.\w{3,4})/;
 	const photos = json.photos.map(photo => {
 		const originalName = photo.image.match(regex)[1];
@@ -61,7 +63,7 @@ const PhotoSection = () => {
 		<StyledArticle id="photos">
 			<ContentHeader>Photos</ContentHeader>
 			<Gallery 
-				columnWidth={isMobileOnly ? '49%' : '33%'}
+				columnWidth={isMobile ? '49%' : '33%'}
 			>
 				{photos}
 			</Gallery>

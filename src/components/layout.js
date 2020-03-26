@@ -1,4 +1,4 @@
-import React from "react"
+import React, { createContext, useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
@@ -17,8 +17,24 @@ const Footer = styled.footer`
   color: ${palette.mainColor};
 `
 
-const Layout = ({ children }) => (
-    <React.Fragment>
+
+export const MobileContext = createContext();
+
+
+const Layout = ({ children }) => {
+  const [isMobile, setIsMobile] = useState();
+  const mql = window.matchMedia('(max-width: 599px)');
+
+  const checkMql = () => setIsMobile(mql.matches);
+
+  useEffect(() => {
+    checkMql();
+    mql.addListener(checkMql);
+    return () => mql.removeListener(checkMql);
+  }, [])
+
+  return (
+    <MobileContext.Provider value={isMobile}>
       <Header/>
       <Main>{children}</Main>
       <Footer>
@@ -26,8 +42,9 @@ const Layout = ({ children }) => (
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </Footer>
-    </React.Fragment>
-)
+    </MobileContext.Provider>
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

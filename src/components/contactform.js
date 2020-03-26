@@ -26,8 +26,12 @@ const Form = styled.form`
 			width: 100%;
 			border-radius: 20px;
 			outline: none;
-			border: none;
+			border: 3px solid transparent;
 			padding: 5px 15px;
+
+			&:focus {
+				border-color: ${palette.btnBackground};
+			}
 		}
 	}
 `

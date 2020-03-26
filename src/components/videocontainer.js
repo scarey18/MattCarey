@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import { lighten } from "polished"
-import { isMobile } from "react-device-detect";
 
 import * as palette from '../cssvariables'
+import { MobileContext } from './layout'
 import Card from './card'
 
 
@@ -39,6 +39,7 @@ const Container = styled(Card)`
 
 const VideoContainer = ({ title, url }) => {
 	const [loadVideo, setLoadVideo] = useState(false);
+	const isMobile = useContext(MobileContext);
 
 	const regex = /(v=|\.be\/|\/embed\/)(\w+)&?/;
 	const id = url.match(regex)[2];

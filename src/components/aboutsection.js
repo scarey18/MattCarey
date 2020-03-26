@@ -1,11 +1,11 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import { lighten } from "polished"
-import { isMobileOnly } from "react-device-detect";
 
 import * as palette from '../cssvariables'
+import { MobileContext } from './layout'
 import Article from './article'
 import ContentHeader from './contentheader'
 import CollapsibleContainer from './collapsiblecontainer'
@@ -70,7 +70,9 @@ const AboutSection = () => {
 		}
 	`)
 
-	const BioContainer = isMobileOnly ? (
+	const isMobile = useContext(MobileContext);
+
+	const BioContainer = isMobile ? (
 		<MobileContainer 
 			collapsedHeight="300px"
 			innerHtml={data.bio.childMarkdownRemark.html}
