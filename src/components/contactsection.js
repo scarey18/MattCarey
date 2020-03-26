@@ -25,13 +25,14 @@ const SuccessCard = styled(Card)`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 2rem;
+	padding: 1.3rem 2rem;
 	width: auto;
 	border-radius: 100px;
 	margin-top: 30px;
 
-	h2 {
-		color: inherit;
+	h3, p {
+		margin: 5px 0;
+		text-align: center;
 	}
 `
 
@@ -41,7 +42,7 @@ const ContactSection = () => {
 
 	const content = formWasSubmitted ? (
 		<SuccessCard>
-			<h2>Thank you for message!</h2>
+			<h3>Thank you for your message!</h3>
 			<p>Matt will get back in touch with you soon. Have a great day!</p>
 		</SuccessCard>
 	) : (
@@ -57,9 +58,7 @@ const ContactSection = () => {
 					href="http://www.elegyartistmanagement.com/agency.php?view=contacts"
 					target="_blank"
 					rel="noopener noreferrer"
-				>
-					Elegy Artist Management.
-				</a>
+				>Elegy Artist Management.</a>
 			</h3>
 			{content}
 		</StyledArticle>

@@ -36,7 +36,8 @@
     "react-typography": "^0.16.19",
     "styled-components": "^5.0.1",
     "typography": "^0.16.19",
-    "typography-theme-kirkham": "^0.16.19"
+    "typography-theme-kirkham": "^0.16.19",
+    "unfetch": "^4.1.0"
   },
   "devDependencies": {
     "prettier": "^1.19.1"

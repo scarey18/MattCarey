@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { lighten } from "polished"
 import PropTypes from "prop-types"
+import fetch from 'unfetch'
 
 import * as palette from '../cssvariables'
 
@@ -117,15 +118,14 @@ const ContactForm = ({ onSubmission }) => {
     return true;
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (formIsValidated()) {
-      const form = e.target;
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
-          'form-name': form.getAttribute('name'),
+          'form-name': "contact",
           ...state,
         }),
       })
@@ -177,7 +177,9 @@ const ContactForm = ({ onSubmission }) => {
           </label>
         </TextAreaField>
         <ButtonField>
-          <button type="submit">Send</button>
+          <button type="submit">
+            Send
+          </button>
         </ButtonField>
       </Form>
     </React.Fragment>
