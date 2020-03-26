@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
+import { isMobileOnly } from "react-device-detect"
 
 import * as palette from '../cssvariables'
+import MobileNav from './mobilenav'
 import NavLink from './navlink'
 
 
@@ -20,6 +22,9 @@ const FixedHeader = styled.header`
   left: 0;
   z-index: 100;
   transition: all 250ms ease-in-out;
+  display: flex;
+  justify-content: flex-end;
+  background-color: ${palette.black};
 `
 
 const NavBar = styled.nav`
@@ -31,6 +36,7 @@ const NavBar = styled.nav`
   justify-content: flex-end;
   align-items: center;
 `
+
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -56,16 +62,26 @@ const Header = () => {
     backgroundColor: palette.black,
   }
 
+  const navLinks = [
+    <NavLink anchor="#header-top">Home</NavLink>,
+    <NavLink anchor="#about">About</NavLink>,
+    <NavLink anchor="#videos">Videos</NavLink>,
+    <NavLink anchor="#photos">Photos</NavLink>,
+  ]
+
+  const navigation = isMobileOnly ? (
+    <MobileNav navLinks={navLinks} />
+  ) : (
+    <NavBar>
+      {navLinks}
+    </NavBar>
+  )
+
   return (
     <React.Fragment>
       <HeaderAnchor id="header-top"/>
       <FixedHeader id="header-fixed" style={fixedHeaderStyle}>
-        <NavBar>
-          <NavLink anchor="#header-top">Home</NavLink>
-          <NavLink anchor="#about">About</NavLink>
-          <NavLink anchor="#videos">Videos</NavLink>
-          <NavLink anchor="#photos">Photos</NavLink>
-        </NavBar>
+        {navigation}
       </FixedHeader>
     </React.Fragment>
   )

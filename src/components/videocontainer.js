@@ -19,6 +19,8 @@ const Container = styled(Card)`
 	cursor: pointer;
 	transition: all 250ms ease-in-out;
 	color: ${palette.mainColor};
+	position: relative;
+	bottom: 0;
 
 	iframe {
 		width: 450px;
@@ -30,7 +32,7 @@ const Container = styled(Card)`
 
 	&:hover {
 		background-color: ${lighten(0.04, palette.mainBackgroundColor)};
-		margin: 20px 10px 10px 10px;
+		bottom: 10px;
 	}
 `
 

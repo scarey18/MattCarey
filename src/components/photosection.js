@@ -47,11 +47,11 @@ const PhotoSection = () => {
 				href={image.node.fluid.src} 
 				target="_blank"
 				rel="noopener noreferrer"
+				key={originalName}
 			>
 				<PhotoContainer
 					description={photo.description}
 					fluid={image.node.fluid}
-					key={image.node.fluid.originalName}
 				/>
 			</a>
 		)
