@@ -7,9 +7,17 @@ import * as palette from '../cssvariables'
 
 const Header = styled.h1`
 	color: ${palette.mainColor};
-	border-bottom: 1px solid ${palette.mainColor};
 	padding: 10px;
 	width: auto;
+
+	&:after {
+		content: '';
+		display: block;
+		margin: 0 auto;
+		width: 5rem;
+		padding-top: 20px;
+		border-bottom: 1px solid ${palette.mainColor};
+	}
 `
 
 

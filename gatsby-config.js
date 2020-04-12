@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Matthew Carey | Baritone - Opera | Concert | Theater`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Matthew Carey is a vocal performer, teacher, and Speech-Language Pathologist specializing in Singing Voice Therapy.`,
     author: `Sean Carey`,
   },
   plugins: [
@@ -41,13 +41,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Matthew Carey`,
+        short_name: `Matthew Carey`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#020202`,
+        theme_color: `#fff`,
         display: `minimal-ui`,
-        // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/mattlogo.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
