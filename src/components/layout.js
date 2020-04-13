@@ -1,12 +1,49 @@
 import React, { createContext, useEffect, useState, useRef } from "react"
 import PropTypes from "prop-types"
-import styled from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 import { darken } from "polished"
 
-import '../global.css'
 import * as palette from '../cssvariables'
 import Header from "./header"
 
+
+const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-display: swap;
+  }
+
+  * {
+    transition: all 250ms ease-in-out;
+  }
+
+  html, body, #___gatsby {
+    width: 100%;
+    overflow: auto;
+    overflow: initial;
+  }
+
+  #gatsby-focus-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    text-decoration: none;
+    border: none;
+  }
+
+  button:focus {
+    outline: none;
+  }
+
+  button:active {
+    border-style: none;
+  }
+
+  a {
+    color: ${palette.linkColor};
+  }
+`
 
 const Main = styled.main`
   width: 100%;
@@ -42,6 +79,7 @@ const Layout = ({ children }) => {
 
   return (
     <MobileContext.Provider value={isMobile}>
+      <GlobalStyle />
       <Header/>
       <Main>{children}</Main>
       <Footer>

@@ -8,3 +8,4 @@ export const mainColor = white;
 export const btnBackground = '#396030';
 export const boxShadow = 'rgba(2, 2, 2, 0.8)';
 export const modalShadow = 'rgba(2, 2, 2, 0.5)';
+export const linkColor = '#ff683a';

@@ -34,7 +34,7 @@ const Overlay = styled.span`
 const PhotoContainer = ({ description, fluid }) => {
 	return (
 		<Container>
-			<Img fluid={fluid} alt={description} />
+			<Img fluid={fluid} alt={description} loading="lazy" />
 			<Overlay>{description}</Overlay>
 		</Container>
 	)

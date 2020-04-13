@@ -26,7 +26,7 @@ const PhotoSection = () => {
 		  allImageSharp {
 		    edges {
 		      node {
-		        fluid {
+		        fluid(maxWidth: 360) {
 		        	...GatsbyImageSharpFluid
 		          originalName
 		        }

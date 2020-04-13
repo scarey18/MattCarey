@@ -35,6 +35,8 @@
     "react-stack-grid": "^0.7.1",
     "react-typography": "^0.16.19",
     "styled-components": "^5.0.1",
+    "typeface-fira-sans": "0.0.75",
+    "typeface-playfair-display": "^1.1.4",
     "typography": "^0.16.19",
     "typography-theme-kirkham": "^0.16.19",
     "unfetch": "^4.1.0"
