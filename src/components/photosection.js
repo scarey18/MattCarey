@@ -54,7 +54,7 @@ const PhotoSection = () => {
 		}
 	}, [])
 
-	const regex = /.+\/(\w+\.\w{3,4})/;
+	const regex = /src\/images\/(.+\.\w{3,4})/;
 	const photos = json.photos.map(photo => {
 		const originalName = photo.image.match(regex)[1];
 		const image = query.allImageSharp.edges.find(
