@@ -64,12 +64,12 @@ const Header = () => {
   }
 
   const navLinks = [
-    <NavLink anchor="#header-top">Home</NavLink>,
-    <NavLink anchor="#about">About</NavLink>,
-    <NavLink anchor="#videos">Videos</NavLink>,
-    <NavLink anchor="#photos">Photos</NavLink>,
-    <NavLink anchor="#repertoire">Repertoire</NavLink>,
-    <NavLink anchor="#contact">Contact</NavLink>,
+    <NavLink anchor="#header-top" key='0'>Home</NavLink>,
+    <NavLink anchor="#about" key='1'>About</NavLink>,
+    <NavLink anchor="#videos" key='2'>Videos</NavLink>,
+    <NavLink anchor="#photos" key='3'>Photos</NavLink>,
+    <NavLink anchor="#repertoire" key='4'>Repertoire</NavLink>,
+    <NavLink anchor="#contact" key='5'>Contact</NavLink>,
   ]
 
   const navigation = isMobile ? (

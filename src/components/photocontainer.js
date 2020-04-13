@@ -9,6 +9,7 @@ import * as palette from '../cssvariables'
 const Container = styled.div`
 	position: relative;
 	cursor: pointer;
+	margin-bottom: 5px;
 `
 
 const Overlay = styled.span`
@@ -33,10 +34,16 @@ const Overlay = styled.span`
 
 const PhotoContainer = ({ description, fluid }) => {
 	return (
-		<Container>
-			<Img fluid={fluid} alt={description} loading="lazy" />
-			<Overlay>{description}</Overlay>
-		</Container>
+		<a 
+			href={fluid.src} 
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<Container>
+				<Img fluid={fluid} alt={description} loading="lazy" />
+				<Overlay>{description}</Overlay>
+			</Container>
+		</a>
 	)
 }
 

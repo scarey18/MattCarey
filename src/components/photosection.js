@@ -1,22 +1,17 @@
-import React, { useContext, useEffect, useRef } from "react"
+import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import StackGrid from 'react-stack-grid'
 
 import * as palette from '../cssvariables'
-import { MobileContext } from './layout'
 import Article from './article'
 import ContentHeader from './contentheader'
+import Gallery from './gallery'
 import PhotoContainer from './photocontainer'
 import json from "../content/photos.json"
 
 
 const StyledArticle = styled(Article)`
 	background-color: ${palette.mainBackgroundColor};
-`
-
-const Gallery = styled(StackGrid)`
-	margin-top: 30px;
 `
 
 
@@ -36,54 +31,39 @@ const PhotoSection = () => {
 		}
 	`)
 
-	const grid = useRef();
-	const gridTimeout = useRef();
-	const isMobile = useContext(MobileContext);
+	const matchImages = () => {
+		const regex = /src\/images\/(.+\.\w{3,4})/;
+		const namesList = [];
+		const photos = [];
 
-	const updateGrid = () => {
-		gridTimeout.current = window.setTimeout(() => {
-			grid.current.updateLayout();
-		}, 500);
+		json.photos.forEach((photo, i) => {
+			const originalName = photo.image.match(regex)[1];
+			if (!namesList.includes(originalName)) {
+				namesList.push(originalName);
+				const image = query.allImageSharp.edges.find(
+					edge => edge.node.fluid.originalName === originalName
+				)
+				photos.push({
+					aspectRatio: image.node.fluid.aspectRatio,
+					id: i,
+					component: (
+						<PhotoContainer
+							description={photo.description}
+							fluid={image.node.fluid}
+							key={originalName}
+						/>
+					),
+				})
+			}
+		})
+		
+		return photos;
 	}
-
-	useEffect(() => {
-		window.addEventListener('resize', updateGrid);
-		return () => {
-			window.removeEventListener('resize', updateGrid);
-			clearTimeout(gridTimeout.current);
-		}
-	}, [])
-
-	const regex = /src\/images\/(.+\.\w{3,4})/;
-	const photos = json.photos.map(photo => {
-		const originalName = photo.image.match(regex)[1];
-		const image = query.allImageSharp.edges.find(
-			edge => edge.node.fluid.originalName === originalName
-		)
-		return (
-			<a 
-				href={image.node.fluid.src} 
-				target="_blank"
-				rel="noopener noreferrer"
-				key={originalName}
-			>
-				<PhotoContainer
-					description={photo.description}
-					fluid={image.node.fluid}
-				/>
-			</a>
-		)
-	})
 
 	return (
 		<StyledArticle id="photos">
 			<ContentHeader>Photos</ContentHeader>
-			<Gallery 
-				columnWidth={isMobile ? '49%' : '33%'}
-				ref={grid}
-			>
-				{photos}
-			</Gallery>
+			<Gallery photos={matchImages()} />
 		</StyledArticle>
 	)
 }
