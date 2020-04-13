@@ -75,6 +75,7 @@ const MobileNav = ({ navLinks }) => {
         menuDropped={menuDropped} 
         type="button"
         onClick={() => setMenuDropped(!menuDropped)}
+        aria-label="Menu"
       >
         <span className="hamburger-box">
           <span className="hamburger-inner"></span>
