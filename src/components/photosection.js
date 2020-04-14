@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -6,6 +6,7 @@ import * as palette from '../cssvariables'
 import Article from './article'
 import ContentHeader from './contentheader'
 import Gallery from './gallery'
+import GalleryModal from './gallerymodal'
 import matchImagesToPhotos from '../utils/matchImagesToPhotos'
 
 
@@ -30,13 +31,25 @@ const PhotoSection = () => {
 		  }
 		}
 	`)
-
 	const photos = matchImagesToPhotos(query.allImageSharp.edges);
+
+	const [showModal, setShowModal] = useState(false);
+	const [modalIndex, setModalIndex] = useState(0);
+
+	function openModal(id) {
+		setShowModal(true);
+		setModalIndex(id);
+	}
 
 	return (
 		<StyledArticle id="photos">
 			<ContentHeader>Photos</ContentHeader>
-			<Gallery photos={photos} />
+			<Gallery photos={photos} openModal={openModal} />
+			<GalleryModal 
+				showModal={showModal}
+				closeModal={() => setShowModal(false)}
+				index={modalIndex}
+			/>
 		</StyledArticle>
 	)
 }

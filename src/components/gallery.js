@@ -24,7 +24,7 @@ const Column = styled.div`
 `
 
 
-const Gallery = ({ photos }) => {
+const Gallery = ({ photos, openModal }) => {
 	const isMobile = useMobileContext();
 	const columns = isMobile ? createColumns(2) : createColumns(3);
 
@@ -49,6 +49,7 @@ const Gallery = ({ photos }) => {
 				<PhotoContainer
 					description={photo.description}
 					fluid={photo.fluid}
+					handleClick={() => openModal(photo.id)}
 					key={photo.id}
 				/>
 			))
@@ -71,6 +72,7 @@ const Gallery = ({ photos }) => {
 
 Gallery.propTypes = {
 	photos: PropTypes.array.isRequired,
+	openModal: PropTypes.func.isRequired,
 }
 
 

@@ -14,7 +14,7 @@ const Anchor = styled.div`
 `
 
 
-const Container = styled.a`
+const Container = styled.div`
 	z-index: 5;
 	position: absolute;
 	left: 50%;
@@ -31,16 +31,12 @@ const Container = styled.a`
 `
 
 
-const PhotoContainer = ({ description, fluid }) => {
+const PhotoContainer = ({ description, fluid, handleClick }) => {
 	const paddingTop = 100 / fluid.aspectRatio;
 
 	return (
 		<Anchor paddingTop={`${paddingTop}%`}>
-			<Container 
-				href={fluid.src} 
-				target="_blank"
-				rel="noopener noreferrer"
-			>
+			<Container onClick={handleClick}>
 				<Img 
 					fluid={fluid} 
 					alt={description}
@@ -56,6 +52,7 @@ const PhotoContainer = ({ description, fluid }) => {
 PhotoContainer.propTypes = {
 	description: PropTypes.string.isRequired,
 	fluid: PropTypes.object.isRequired,
+	handleClick: PropTypes.func,
 }
 
 
