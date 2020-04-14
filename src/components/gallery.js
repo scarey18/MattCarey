@@ -1,8 +1,9 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 
-import { MobileContext } from './layout'
+import { useMobileContext } from '../utils/mobilecontext'
+import PhotoContainer from './photocontainer'
 
 
 const Container = styled.div`
@@ -15,6 +16,7 @@ const Column = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-right: 5px;
+	position: relative;
 
 	&:last-child {
 		margin-right: 0;
@@ -23,35 +25,45 @@ const Column = styled.div`
 
 
 const Gallery = ({ photos }) => {
-	const isMobile = useContext(MobileContext);
+	const isMobile = useMobileContext();
+	const columns = isMobile ? createColumns(2) : createColumns(3);
 
-	const createColumns = columnAmount => {
+	function createColumns(columnAmount) {
 		const columns = [];
 		for (let i = 0; i < columnAmount; i++) {
 			columns.push({height: 0, photos: [], id: i});
 		}
 		
-		photos.sort((a, b) => a.aspectRatio - b.aspectRatio);
+		photos.sort(
+			(a, b) => a.fluid.aspectRatio - b.fluid.aspectRatio
+		)
 		photos.forEach(photo => {
 			columns[0].photos.push(photo);
-			columns[0].height += 100 / photo.aspectRatio;
+			columns[0].height += 100 / photo.fluid.aspectRatio;
 			columns.sort((a, b) => a.height - b.height);
+		})
+
+		columns.forEach(column => {
+			column.photos.sort((a, b) => a.id - b.id)
+			column.children = column.photos.map(photo => (
+				<PhotoContainer
+					description={photo.description}
+					fluid={photo.fluid}
+					key={photo.id}
+				/>
+			))
 		})
 
 		return columns.map(column => (
 			<Column key={column.id}>
-				{column.photos
-					.sort((a, b) => a.id - b.id)
-					.map(photo => photo.component)}
+				{column.children}
 			</Column>
 		))
 	}
 
-	const sortedPhotos = isMobile ? createColumns(2) : createColumns(3);
-
 	return (
 		<Container>
-			{sortedPhotos}
+			{columns}
 		</Container>
 	)
 }

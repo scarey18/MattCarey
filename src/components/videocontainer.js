@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import { lighten } from "polished"
 
 import * as palette from '../cssvariables'
-import { MobileContext } from './layout'
+import { useMobileContext } from '../utils/mobilecontext'
 import Card from './card'
 
 
@@ -14,13 +14,12 @@ const Container = styled(Card)`
 	justify-content: space-around;
 	align-items: center;
 	margin: 30px 10px 0 10px;
-	padding: 5px 10px 0 10px;
+	padding: 10px 10px 0 10px;
 	background-color: ${palette.mainBackgroundColor};
 	cursor: pointer;
 	transition: all 250ms ease-in-out;
 	color: ${palette.mainColor};
 	position: relative;
-	bottom: 0;
 
 	iframe {
 		width: 450px;
@@ -32,14 +31,13 @@ const Container = styled(Card)`
 
 	&:hover {
 		background-color: ${lighten(0.04, palette.mainBackgroundColor)};
-		bottom: 10px;
 	}
 `
 
 
 const VideoContainer = ({ title, url }) => {
 	const [loadVideo, setLoadVideo] = useState(false);
-	const isMobile = useContext(MobileContext);
+	const isMobile = useMobileContext();
 
 	const regex = /(v=|\.be\/|\/embed\/)(\w+)&?/;
 	const id = url.match(regex)[2];
@@ -47,7 +45,7 @@ const VideoContainer = ({ title, url }) => {
 	const imgUrl = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 	const srcdoc = `<style>*{padding:0;margin:0;overflow:hidden;cursor:pointer}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black;background-color:transparent}</style><a href='${embedUrl}'><img src='${imgUrl}' alt='${title}' loading='lazy'><span>▶</span></a>`
 
-	const handleHoverOrClick = () => {
+	function handleHoverOrClick() {
 		if (!loadVideo && !isMobile) {
 			setLoadVideo(true);
 		}

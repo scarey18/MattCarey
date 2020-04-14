@@ -1,11 +1,11 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import { lighten } from "polished"
 
 import * as palette from '../cssvariables'
-import { MobileContext } from './layout'
+import { useMobileContext } from '../utils/mobilecontext'
 import Article from './article'
 import ContentHeader from './contentheader'
 import CollapsibleContainer from './collapsiblecontainer'
@@ -70,7 +70,7 @@ const AboutSection = () => {
 		}
 	`)
 
-	const isMobile = useContext(MobileContext);
+	const isMobile = useMobileContext();
 
 	const BioContainer = isMobile ? (
 		<MobileContainer 

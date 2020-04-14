@@ -19,7 +19,7 @@ const Button = styled.button`
 const CollapsibleContainer = ({ children, className, expand, collapsedHeight, maxHeight, innerHtml }) => {
 	const [isExpanded, setIsExpanded] = useState(expand);
 
-	const onBtnClick = () => {
+	function onBtnClick() {
 		setIsExpanded(!isExpanded);
 	}
 

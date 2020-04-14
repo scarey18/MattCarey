@@ -1,10 +1,11 @@
-import React, { createContext, useEffect, useState, useRef } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import styled, { createGlobalStyle } from "styled-components"
 import { darken } from "polished"
 
 import * as palette from '../cssvariables'
 import Header from "./header"
+import { MobileContextProvider } from '../utils/mobilecontext'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -62,30 +63,16 @@ const Footer = styled.footer`
 `
 
 
-export const MobileContext = createContext();
-
 const Layout = ({ children }) => {
-  const [isMobile, setIsMobile] = useState(false);
-  const mql = useRef();
-
-  const updateMobile = () => setIsMobile(mql.current.matches);
-
-  useEffect(() => {
-    mql.current = window.matchMedia('(max-width: 599px)');
-    updateMobile();
-    mql.current.addListener(updateMobile);
-    return () => mql.current.removeListener(updateMobile);
-  }, [])
-
   return (
-    <MobileContext.Provider value={isMobile}>
+    <MobileContextProvider>
       <GlobalStyle />
       <Header/>
       <Main>{children}</Main>
       <Footer>
         © {new Date().getFullYear()} Matthew Carey | Designed and maintained by Sean Carey
       </Footer>
-    </MobileContext.Provider>
+    </MobileContextProvider>
   )
 }
 

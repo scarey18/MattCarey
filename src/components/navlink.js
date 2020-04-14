@@ -21,7 +21,7 @@ const StyledLink = styled.a`
 
 
 const NavLink = ({ anchor, children }) => {
-  const handleClick = e => {
+  function handleClick(e) {
     e.preventDefault();
     scrollTo(anchor);
   }

@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 
 import * as palette from '../cssvariables'
-import { MobileContext } from './layout'
+import { useMobileContext } from '../utils/mobilecontext'
 import MobileNav from './mobilenav'
 import NavLink from './navlink'
 
@@ -40,14 +40,14 @@ const NavBar = styled.nav`
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const isMobile = useContext(MobileContext);
+  const isMobile = useMobileContext();
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [])
 
-  const handleScroll = () => {
+  function handleScroll() {
     if (window.scrollY === 0) {
       setIsScrolled(false);
     }

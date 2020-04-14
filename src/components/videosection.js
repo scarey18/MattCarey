@@ -10,12 +10,12 @@ import data from "../content/video-urls.json"
 
 const StyledArticle = styled(Article)`
 	background-color: ${palette.secondaryBackgroundColor};
+`
 
-	p {
-		color: ${palette.mainColor};
-		margin-top: 30px;
-		text-align: center;
-	}
+const BottomText = styled.p`
+	color: ${palette.mainColor};
+	margin-top: 30px;
+	text-align: center;
 `
 
 const VideoList = styled.section`
@@ -35,14 +35,14 @@ const VideoSection = () => {
 					<VideoContainer title={title} url={url} key={url} />
 				))}
 			</VideoList>
-			<p>
+			<BottomText>
 				Find more on&nbsp;
 				<a 
 					href="https://www.youtube.com/channel/UC6VRjs2wOGdLHDsm0szrXhw/"
 					target="_blank"
 					rel="noopener noreferrer"
 				>Matt's YouTube channel.</a>
-			</p>
+			</BottomText>
 		</StyledArticle>
 	)
 }

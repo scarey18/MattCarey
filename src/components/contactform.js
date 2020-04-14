@@ -89,11 +89,11 @@ const ContactForm = ({ onSubmission }) => {
   });
   const [warnings, setWarnings] = useState({});
 
-	const handleChange = (e) => {
+	function handleChange(e) {
     setState({ ...state, [e.target.name]: e.target.value })
   }
 
-  const formIsValidated = () => {
+  function formIsValidated() {
     const newWarnings = {};
     const { name, email, message } = state;
     const notEmptyReg = /\w+/;
@@ -118,7 +118,7 @@ const ContactForm = ({ onSubmission }) => {
     return true;
   }
 
-  const handleSubmit = e => {
+  function handleSubmit(e) {
     e.preventDefault();
     if (formIsValidated()) {
       fetch('/', {
