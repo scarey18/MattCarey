@@ -41,7 +41,7 @@ const managedModal = (Modal, querySelector='body') => (
 		return (
 			<React.Fragment>
 				{hasBeenOpened && createPortal(
-					<Modal {...props}/>,
+					<Modal {...props} />,
 					container.current,
 				)}
 			</React.Fragment>
