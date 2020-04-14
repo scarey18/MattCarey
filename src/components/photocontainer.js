@@ -22,6 +22,7 @@ const Container = styled.div`
 	transform: translateX(-50%) translateY(-50%);
 	cursor: pointer;
 	width: 100%;
+	transition: all 250ms ease-in-out;
 
 	&:hover {
 		z-index: 10;

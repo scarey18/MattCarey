@@ -23,7 +23,7 @@ const PhotoSection = () => {
 		    edges {
 		      node {
 		        fluid(maxWidth: 360) {
-		        	...GatsbyImageSharpFluid
+		        	...GatsbyImageSharpFluid_withWebp
 		          originalName
 		        }
 		      }
@@ -36,7 +36,7 @@ const PhotoSection = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [modalIndex, setModalIndex] = useState(0);
 
-	function openModal(id) {
+	function openModal(id=0) {
 		setShowModal(true);
 		setModalIndex(id);
 	}
@@ -49,6 +49,7 @@ const PhotoSection = () => {
 				showModal={showModal}
 				closeModal={() => setShowModal(false)}
 				index={modalIndex}
+				setIndex={setModalIndex}
 			/>
 		</StyledArticle>
 	)

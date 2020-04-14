@@ -2,34 +2,39 @@ import React, { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 
 
-const managedModal = Modal => (
+const managedModal = (Modal, querySelector='body') => (
 	props => {
 		const [hasBeenOpened, setHasBeenOpened] = useState(false);
 		
 		useEffect(() => {
 			if (props.showModal) {
-				handleOpen();
+				if (!hasBeenOpened) setHasBeenOpened(true);
+				preventScroll();
 			} else if (!props.showModal && hasBeenOpened) {
-				handleClose();
+				allowScroll();
 			}
 			return () => {
-				document.querySelector('body').style.overflow = null;
+				allowScroll();
 			}
 		}, [props.showModal])
 
-		function handleOpen() {
-			if (!hasBeenOpened) setHasBeenOpened(true);
-			document.querySelector('body').style.overflow = 'hidden';
+		function preventScroll() {
+			const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+			if (scrollbarWidth > 0) {
+				document.body.style.paddingRight = `${scrollbarWidth}px`;
+				document.body.style.overflow = 'hidden';
+			}
 		}
 
-		function handleClose() {
-			document.querySelector('body').style.overflow = null;
+		function allowScroll() {
+			document.body.style.paddingRight = null;
+			document.body.style.overflow = null;
 		}
 
 		const container = useRef();
 		useEffect(() => {
-			container.current = document.getElementById(
-				'gatsby-focus-wrapper'
+			container.current = document.querySelector(
+				querySelector
 			)
 		}, [])
 

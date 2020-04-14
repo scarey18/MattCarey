@@ -58,7 +58,7 @@ const AboutSection = () => {
 		  image: file(relativePath: {eq: "press_photo_1.jpg"}) {
 		    childImageSharp {
 		      fluid(maxWidth: 480) {
-		      	...GatsbyImageSharpFluid
+		      	...GatsbyImageSharpFluid_withWebp
 		      }
 		    }
 		  }

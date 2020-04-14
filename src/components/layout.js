@@ -13,10 +13,6 @@ const GlobalStyle = createGlobalStyle`
     font-display: swap;
   }
 
-  * {
-    transition: all 250ms ease-in-out;
-  }
-
   html, body, #___gatsby {
     width: 100%;
     overflow: auto;

@@ -44,7 +44,7 @@ const Gallery = ({ photos, openModal }) => {
 		})
 
 		columns.forEach(column => {
-			column.photos.sort((a, b) => a.id - b.id)
+			column.photos.sort((a, b) => a.id - b.id);
 			column.children = column.photos.map(photo => (
 				<PhotoContainer
 					description={photo.description}

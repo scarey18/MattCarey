@@ -29,6 +29,7 @@ const Form = styled.form`
 			outline: none;
 			border: 3px solid transparent;
 			padding: 5px 15px;
+      transition: border-color 250ms ease-in-out;
 
 			&:focus {
 				border-color: ${palette.btnBackground};
