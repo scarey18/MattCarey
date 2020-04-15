@@ -39,6 +39,7 @@ module.exports = {
     `gatsby-plugin-polished`,
     `gatsby-plugin-smoothscroll`,
     `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

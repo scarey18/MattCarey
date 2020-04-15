@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 
 
 const Content = styled.div`
-	transition: all 400ms ease-in-out;
+	transition: height 400ms ease-in-out;
 	overflow: hidden;
 `
 
@@ -16,8 +16,15 @@ const Button = styled.button`
 `
 
 
-const CollapsibleContainer = ({ children, className, expand, collapsedHeight, maxHeight, innerHtml }) => {
-	const [isExpanded, setIsExpanded] = useState(expand);
+const CollapsibleContainer = ({ children, className, expand, collapsedHeight, innerHtml }) => {
+	const [isExpanded, setIsExpanded] = useState(true);
+	const contentRef = useRef();
+	const maxHeight = useRef('auto');
+
+	useEffect(() => {
+		maxHeight.current = contentRef.current.offsetHeight;
+		setIsExpanded(expand);
+	}, [])
 
 	function onBtnClick() {
 		setIsExpanded(!isExpanded);
@@ -26,21 +33,22 @@ const CollapsibleContainer = ({ children, className, expand, collapsedHeight, ma
 	const linearGradient = 'linear-gradient(rgba(0, 0, 0, 0.8), 80%, transparent)';
 
 	const contentStyle = isExpanded ? {
-		maxHeight: maxHeight, 
+		height: maxHeight.current, 
 		WebkitMaskImage: 'none',
 	} : {
-		maxHeight: collapsedHeight,
+		height: collapsedHeight,
 		WebkitMaskImage: linearGradient,
 	}
 
 	const content = children ? (
-		<Content style={contentStyle}>
+		<Content style={contentStyle} ref={contentRef}>
 			{children}
 		</Content>
 	) : (
 		<Content
 			style={contentStyle}
 			dangerouslySetInnerHTML={{__html: innerHtml}}
+			ref={contentRef}
 		/>
 	)
 

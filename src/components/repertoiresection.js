@@ -60,7 +60,6 @@ const RepertoireSection = () => {
 			<ContentHeader>Repertoire</ContentHeader>
 			<RepContainer 
 				collapsedHeight="600px"
-				maxHeight="5000px"
 				innerHtml={data.file.childMarkdownRemark.html}
 			/>
 		</StyledArticle>

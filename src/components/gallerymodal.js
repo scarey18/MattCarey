@@ -3,7 +3,9 @@ import styled from "styled-components"
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from "gatsby"
 import { transparentize } from 'polished'
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { 
+	FaChevronLeft, FaChevronRight, FaTimes 
+} from 'react-icons/fa'
 
 import * as palette from '../cssvariables'
 import matchImagesToPhotos from '../utils/matchImagesToPhotos'
@@ -23,8 +25,11 @@ const Modal = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	transition: all 350ms ease-in-out;
-	transition-property: opacity;
+	transition: opacity 350ms ease-in-out;
+
+	&:focus {
+		outline: none;
+	}
 `
 
 const NavBtn = styled.button`
@@ -41,9 +46,13 @@ const NavBtn = styled.button`
 		color: ${palette.mainColor};
 	}
 `
-
 const LeftNavBtn = styled(NavBtn)`left: 20px`
 const RightNavBtn = styled(NavBtn)`right: 20px`
+const ExitBtn = styled(NavBtn)`
+	top: 20px;
+	right: 20px;
+	transform: none;
+`
 
 
 const GalleryModal = ({ showModal, closeModal, index, setIndex }) => {
@@ -143,6 +152,12 @@ const GalleryModal = ({ showModal, closeModal, index, setIndex }) => {
 			>
 				<FaChevronRight size='2rem'/>
 			</RightNavBtn>
+			<ExitBtn
+				title="Close Modal"
+				onClick={e => handleBtnClick(e, closeModal)}
+			>
+				<FaTimes size='2rem'/>
+			</ExitBtn>
 		</Modal>
 	)
 }
