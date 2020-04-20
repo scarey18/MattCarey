@@ -19,6 +19,41 @@
       "press": false,
       "image": "/src/images/teatro_de_la_ciudad.jpg",
       "description": "Teatro de la Ciudad"
+    },
+    {
+      "press": false,
+      "image": "/src/images/singing2.jpg",
+      "description": "Singing"
+    },
+    {
+      "press": false,
+      "image": "/src/images/pensive.jpg",
+      "description": "Pensive"
+    },
+    {
+      "press": false,
+      "image": "/src/images/gazing-up.jpg",
+      "description": "Gazing"
+    },
+    {
+      "press": false,
+      "image": "/src/images/front-singing.jpg",
+      "description": "Full front"
+    },
+    {
+      "press": false,
+      "image": "/src/images/color-singing-2.jpg",
+      "description": "Singing"
+    },
+    {
+      "press": false,
+      "image": "/src/images/1-headshot2.jpg",
+      "description": "Headshot"
+    },
+    {
+      "press": false,
+      "image": "/src/images/press_photo_1.jpg",
+      "description": "Full front"
     }
   ]
 }
