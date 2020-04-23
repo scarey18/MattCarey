@@ -1,3 +1,52 @@
+## Opera and Theater:
+
+*Bizet*\
+Dancaire and Morales in *Carmen*
+
+*Britten*\
+Sid in *Albert Herring*
+
+*Debussy*\
+Pelléas in *Pelléas et Mélisande*
+
+*Donizetti*\
+Alfonso in *La Favorita*
+
+*Gounod*\
+Valentin in *Faust*
+
+*Humperdinck*\
+Father in *Hänsel und Gretel* 
+
+*Leoncavallo*\
+Silvio in *I Pagliacci*
+
+*Massenet*\
+Lescaut in *Manon*
+
+*Mozart*\
+Guglielmo in  *Cosi fan tutte*
+
+*Nicolai*                                                                      \
+Herr Fluth in *Die Lustigen Weiber von Windsor* 
+
+*Puccini*\
+Marcello in *La Bohème*\
+Colline in *La Bohème*
+
+*Rossini*\
+Figaro in *Il Barbiere di Seviglia*\
+Taddeo in *L'Italiana in Algeri* 
+
+*Verdi*\
+Ford in *Falstaff*\
+Marquis D'Obigny in *La Traviata*
+
+*Wagner*\
+Wolfram in *Tannhäuser*      
+
+
+
 ## Selected Concert Repertoire:
 
 *Carmina Burana* by Orff (most recent performance with the Delta Symphony Orchestra, 2019)
@@ -66,7 +115,7 @@
 
 Selected songs by Brahms, Debussy, Schubert, Schumann, Wolf, Mahler, Strauss, Weill, Fauré, Ravel, Poulenc, Finzi, Barber, Duke, Ives, Bolcom, Gershwin, Cole Porter, Johnny Mercer, Rogers and Hart, Cy Coleman, Van Heusen, Burleigh, Mann and Hilliard, Pearson Thomas
 
-## Songs with Orchestra and Wind Ensemble: 
+## Songs with Orchestra and Wind Ensemble:
 
 *Drum Taps* by Richard Pearson Thomas (premier with A-State Wind Ensemble, (2/10/17) 
 
