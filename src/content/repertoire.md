@@ -1,4 +1,4 @@
-## Opera and Theater:
+## Opera:
 
 *Bizet*\
 Dancaire and Morales in *Carmen*
@@ -43,7 +43,21 @@ Ford in *Falstaff*\
 Marquis D'Obigny in *La Traviata*
 
 *Wagner*\
-Wolfram in *Tannhäuser*      
+Wolfram in *Tannhäuser*   
+
+
+
+## *Theater:*
+
+Will Rogers  in *The Will Rogers Follies*\
+Henry Albertson in *The Fantasticks*
+
+
+
+## Festivals:
+
+Opera Maya International Opera  Festival\
+-June, 2017; Lead baritone soloist with festival orchestra
 
 
 
