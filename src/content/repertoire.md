@@ -45,14 +45,10 @@ Marquis D'Obigny in *La Traviata*
 *Wagner*\
 Wolfram in *Tannhäuser*   
 
-
-
 ## *Theater:*
 
 Will Rogers  in *The Will Rogers Follies*\
 Henry Albertson in *The Fantasticks*
-
-
 
 ## Festivals:
 
@@ -61,7 +57,23 @@ Opera Maya International Opera  Festival\
 
 
 
+## Recent Solo Recitals:
+
+***2019-Die Winterreise*** by Franz Schubert  (Auburn University, University of Alabama, University of Arkansas, Arkansas State University)
+
+**2018-*An American Music Recital*** (Tulane University, University of Memphis)
+
+**2016-*Das Italienisches Liederbuch*** by Hugo Wolf (Arkansas State  University; with Marika Kyriakos and Bethania Baray)
+
+**2014-*A Tribute to Martial Singher*** (Arkansas State University; with Victoria Kirsch; upcoming performance at The American Church in Paris, France-2022)
+
+
+
 ## Selected Concert Repertoire:
+
+*Five  Mystical Songs* by Vaughan Williams (most recent performance with the Concert Choir of Arkansas State University, 2020; Dr. Ryan Sullivan, conductor)
+
+*Coffee Cantata* by J.S. Bach (most recent performance with the music faculty of Arkansas State University, 2020)
 
 *Carmina Burana* by Orff (most recent performance with the Delta Symphony Orchestra, 2019)
 
@@ -92,6 +104,8 @@ Opera Maya International Opera  Festival\
 *Requiems* by Mozart, Fauré and Brahms (most recent Fauré Requiem: 11/1 and 11/7, 2016 in Blytheville and Jonesboro, Arkansas with members of the Memphis Symphony)
 
 *Fantasia on Christmas Carols* by Vaughan Williams
+
+
 
 ## Selected Song Repertoire:
 
@@ -129,6 +143,8 @@ Opera Maya International Opera  Festival\
 
 Selected songs by Brahms, Debussy, Schubert, Schumann, Wolf, Mahler, Strauss, Weill, Fauré, Ravel, Poulenc, Finzi, Barber, Duke, Ives, Bolcom, Gershwin, Cole Porter, Johnny Mercer, Rogers and Hart, Cy Coleman, Van Heusen, Burleigh, Mann and Hilliard, Pearson Thomas
 
+
+
 ## Songs with Orchestra and Wind Ensemble:
 
 *Drum Taps* by Richard Pearson Thomas (premier with A-State Wind Ensemble, (2/10/17) 
@@ -138,3 +154,19 @@ Selected songs by Brahms, Debussy, Schubert, Schumann, Wolf, Mahler, Strauss, We
 *Old American Songs* by Copland
 
 *Don Quichotte à Dulcinée* by Ravel
+
+
+
+## Featured on Recording:
+
+***Ode to  Napoleon Buonaparte*** by Schönberg for ***Disque Montaigne*** (with Stefan Litwin and the Arditti String Quartet)
+
+
+
+## Narration:
+
+*Ode to Napoleon Buonaparte* by Schönberg (Arditti String Quartet and Stefan Litwin; University of North Carolina, Chapel Hill, 2009)
+
+*Peter and the Wolf* by Prokofiev (Northeast Arkansas Symphony, 2001)
+
+*Lincoln Portrait* by Copland (Northeast Arkansas Symphony, 2000)
