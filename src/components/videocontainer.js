@@ -9,6 +9,8 @@ import Card from './card'
 
 
 const Container = styled(Card)`
+	width: 470px;
+	max-width: calc(80vw + 20px);
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -29,6 +31,10 @@ const Container = styled(Card)`
 		z-index: 90;
 	}
 
+	p {
+		text-align: center;
+	}
+
 	&:hover {
 		background-color: ${lighten(0.04, palette.mainBackgroundColor)};
 	}
@@ -39,7 +45,7 @@ const VideoContainer = ({ title, url }) => {
 	const [loadVideo, setLoadVideo] = useState(false);
 	const isMobile = useMobileContext();
 
-	const regex = /(v=|\.be\/|\/embed\/)(\w+)&?/;
+	const regex = /(v=|\.be\/|\/embed\/)([^&]+)(&.+)?/;
 	const id = url.match(regex)[2];
 	const embedUrl = `https://www.youtube.com/embed/${id}?rel=0`;
 	const imgUrl = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
