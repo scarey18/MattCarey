@@ -61,7 +61,7 @@ const GalleryModal = ({ showModal, closeModal, index, setIndex }) => {
 		  allImageSharp {
 		    edges {
 		      node {
-		        fluid {
+		        fluid(quality: 100) {
 		        	...GatsbyImageSharpFluid_withWebp
 		          originalName
 		          presentationWidth

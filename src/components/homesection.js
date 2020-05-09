@@ -49,7 +49,7 @@ const HomeSection = () => {
 		{
 		  file(relativePath: {eq: "press_photo_2.jpg"}) {
 		    childImageSharp {
-		      fluid {
+		      fluid(quality: 100) {
 		      	...GatsbyImageSharpFluid_withWebp
 		      }
 		    }
