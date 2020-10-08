@@ -137,7 +137,6 @@ const ContactForm = ({ onSubmission }) => {
 
   return (
     <React.Fragment>
-      <h3>Or, send Matt a quick note:</h3>
     	<Form
         name="contact"
         method="post"

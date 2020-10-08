@@ -10,12 +10,6 @@ import Card from './card'
 
 const StyledArticle = styled(Article)`
 	background-color: ${palette.mainBackgroundColor};
-
-	h3 {
-		color: ${palette.mainColor};
-		text-align: center;
-		margin-top: 40px;
-	}
 `
 
 const SuccessCard = styled(Card)`
@@ -52,14 +46,6 @@ const ContactSection = () => {
 	return (
 		<StyledArticle id="contact">
 			<ContentHeader>Contact Matt</ContentHeader>
-			<h3>
-				For booking, please contact&nbsp;
-				<a 
-					href="http://www.elegyartistmanagement.com/agency.php?view=contacts"
-					target="_blank"
-					rel="noopener noreferrer"
-				>Elegy Artist Management.</a>
-			</h3>
 			{content}
 		</StyledArticle>
 	)
